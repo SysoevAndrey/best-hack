@@ -1,0 +1,32 @@
+@import "../../App.scss";
+
+
+.header {
+  height: $header-height;
+  background-color: #2a78ed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: 2px solid #585858;
+
+  &__logo {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 44px;
+    margin: 0;
+    color: #e5e5e5;
+    font-family: 'Inter', sans-serif;
+  }
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+    transition: .1s linear;
+    cursor: pointer;
+    
+    &:hover {
+      opacity: .8;
+    }
+  }
+}

@@ -9,7 +9,15 @@ function App() {
   const [keyword, setKeyword] = useState('');
 
   useEffect(() => {
-    if (keyword) {
+    const { keyword: parsedKeyWord = '' } = queryString.parse(
+      window.location.search
+    );
+
+    setKeyword(parsedKeyWord!.toString());
+  }, []);
+
+  useEffect(() => {
+    if (keyword && window.location.pathname !== '/results') {
       window.location.href = `/results?${queryString.stringify({ keyword })}`;
     }
   }, [keyword]);
@@ -26,7 +34,11 @@ function App() {
             path="/search"
             component={() => <StartPage onSetKeyword={setKeyword} />}
           />
-          <Route exact path="/results" component={SecondPage} />
+          <Route
+            exact
+            path="/results"
+            component={() => <SecondPage keyword={keyword} />}
+          />
         </Switch>
       </BrowserRouter>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './StartPage.scss';
+import Header from '../Header';
 
 const StartPage = ({
   onSetKeyword,
@@ -17,9 +18,7 @@ const StartPage = ({
 
   return (
     <div className="start-page">
-      <header className="header">
-        <p className="header__logo">Lumberjacks</p>
-      </header>
+      <Header />
       <main className="main">
         <h1 className="main__title">Поиск товаров</h1>
         <p className="main__subtitle">

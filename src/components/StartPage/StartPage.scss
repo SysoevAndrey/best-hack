@@ -1,26 +1,6 @@
-$header-height: 75px;
-
 .start-page {
   background-color: #e7edf6;
   height: 100vh;
-}
-
-.header {
-  height: $header-height;
-  background-color: #2a78ed;
-  display: flex;
-  align-items: center;
-  padding-left: 30px;
-  border-bottom: 2px solid #585858;
-
-  &__logo {
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 44px;
-    margin: 0;
-    color: #e5e5e5;
-    font-family: 'Inter', sans-serif;
-  }
 }
 
 .main {
