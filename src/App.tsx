@@ -2,8 +2,9 @@ import queryString from 'query-string';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './App.scss';
-import SecondPage from './components/SecondPage';
+import ResultsPage from './components/ResultsPage';
 import StartPage from './components/StartPage';
+import useDidUpdateEffect from './utils/useDidUpdateEffect';
 
 function App() {
   const [keyword, setKeyword] = useState('');
@@ -16,18 +17,27 @@ function App() {
     setKeyword(parsedKeyWord!.toString());
   }, []);
 
-  useEffect(() => {
-    if (keyword && window.location.pathname !== '/results') {
-      window.location.href = `/results?${queryString.stringify({ keyword })}`;
+  useDidUpdateEffect(() => {
+    if (keyword) {
+      const currentLocation = window.location.pathname;
+
+      window.history.replaceState(
+        null,
+        '',
+        `/results?${queryString.stringify({ keyword })}`
+      );
+
+      if (currentLocation === '/search') {
+        window.location.reload();
+      }
+    } else if (keyword === '') {
+      window.location.href = '/search';
     }
   }, [keyword]);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Route exact path="/">
-          <Redirect to="/search" />
-        </Route>
         <Switch>
           <Route
             exact
@@ -37,8 +47,13 @@ function App() {
           <Route
             exact
             path="/results"
-            component={() => <SecondPage keyword={keyword} />}
+            component={() => (
+              <ResultsPage keyword={keyword} onSetKeyword={setKeyword} />
+            )}
           />
+          <Route path="/">
+            <Redirect to="/search" />
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>

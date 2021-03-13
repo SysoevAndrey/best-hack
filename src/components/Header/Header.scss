@@ -10,6 +10,20 @@
   padding: 0 30px;
   border-bottom: 2px solid #585858;
 
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  &__input {
+    width: 250px;
+    height: 40px;
+    background-image: url(../../images/search.svg);
+    background-repeat: no-repeat;
+    background-position: 93% 50%;
+  }
+
   &__logo {
     font-weight: bold;
     font-size: 36px;

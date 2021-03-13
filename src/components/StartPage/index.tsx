@@ -27,7 +27,7 @@ const StartPage = ({
         <form className="main__form" onSubmit={(e) => onFormSubmit(e)}>
           <input
             type="text"
-            className="main__input"
+            className="input main__input"
             placeholder="Введите название товара"
             value={inputValue}
             onChange={({ target: { value } }) => setInputValue(value)}

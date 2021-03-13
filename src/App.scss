@@ -1,3 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Slab:wght@500&family=Roboto:wght@400;500;700&display=swap');
 
 $header-height: 75px;
+
+.input {
+  background: #f8fbff;
+  border: 3px solid #2a78ed80;
+  box-sizing: border-box;
+  border-radius: 40px;
+  padding-left: 24px;
+  font-family: Inter;
+  caret-color: #2a78ed;
+  outline: none;
+  transition: 0.1s linear;
+
+  &::placeholder {
+    font-family: Inter;
+    color: rgba(88, 88, 88, 0.7);
+  }
+
+  &:hover {
+    border: 3px solid #2a78edbf;
+  }
+
+  &:focus {
+    border: 3px solid #2a78ed;
+  }
+}

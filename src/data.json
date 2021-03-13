@@ -1,0 +1,28 @@
+{
+  "total": 48,
+  "list": [
+    {
+      "name": "Наушники Sony",
+      "rating": 4.7,
+      "popularity": 7,
+      "averagePrice": 25999,
+      "markets": [
+        { "name": "Яндекс.Маркет", "price": 23999 },
+        { "name": "М.Видео", "price": 26999 },
+        { "name": "Технопарк", "price": 26999 }
+      ]
+    },
+    {
+      "name": "iPhone 12",
+      "rating": 4.8,
+      "popularity": 9,
+      "averagePrice": 60000,
+      "markets": [
+        { "name": "Яндекс.Маркет", "price": 57999 },
+        { "name": "Технопарк", "price": 60999 },
+        { "name": "Эльдорадо", "price": 59999 },
+        { "name": "М.Видео", "price": 61999 }
+      ]
+    }
+  ]
+}

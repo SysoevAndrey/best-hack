@@ -33,30 +33,12 @@
   &__input {
     width: 100%;
     height: 80px;
-    background: #f8fbff;
-    border: 3px solid #2a78ed80;
-    box-sizing: border-box;
-    border-radius: 40px;
-    padding-left: 24px;
     font-size: 18px;
     font-family: Inter;
-    caret-color: #2a78ed;
-    outline: none;
-    transition: 0.1s linear;
 
     &::placeholder {
-      font-family: Inter;
       font-size: 18px;
       line-height: 22px;
-      color: rgba(88, 88, 88, 0.7);
-    }
-
-    &:hover {
-      border: 3px solid #2a78edbf;
-    }
-
-    &:focus {
-      border: 3px solid #2a78ed;
     }
   }
 
