@@ -19,20 +19,20 @@ const StartPage = ({
   return (
     <div className="start-page">
       <Header />
-      <main className="main">
-        <h1 className="main__title">Поиск товаров</h1>
-        <p className="main__subtitle">
+      <main className="start">
+        <h1 className="start__title">Поиск товаров</h1>
+        <p className="start__subtitle">
           Выбирайте товар мечты из лучших предложений.
         </p>
-        <form className="main__form" onSubmit={(e) => onFormSubmit(e)}>
+        <form className="start__form" onSubmit={(e) => onFormSubmit(e)}>
           <input
             type="text"
-            className="input main__input"
+            className="input start__input"
             placeholder="Введите название товара"
             value={inputValue}
             onChange={({ target: { value } }) => setInputValue(value)}
           />
-          <button className="main__button">Найти</button>
+          <button className="start__button">Найти</button>
         </form>
       </main>
     </div>
