@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../Header';
 import './ResultsPage.scss';
 import Good from '../Good';
+import Popup from '../Popup';
 
 import mock from '../../data.json';
 
@@ -25,6 +26,7 @@ export interface IMarket {
   description: string;
   logo: string;
   price: number;
+  link: string;
 }
 
 const ResultsPage = ({
@@ -40,17 +42,23 @@ const ResultsPage = ({
     list: [],
   });
 
+  const [isPopupOpened, setIsPopupOpened] = useState(false);
+  const [popupContent, setPopupContent] = useState<IMarket[]>([]);
+
   useEffect(() => {
     if (keyword) {
       setTimeout(() => {
         console.log('hello');
         setData(mock);
-      }, 0);
+      }, 2000);
     }
   }, [keyword]);
 
   return (
     <div className="results-page">
+      {isPopupOpened && (
+        <Popup setIsPopupOpened={setIsPopupOpened} markets={popupContent} />
+      )}
       <Header
         isIconVisibvle
         isInputVisible
@@ -70,6 +78,8 @@ const ResultsPage = ({
               popularity={good.popularity}
               averagePrice={good.averagePrice}
               markets={good.markets}
+              setIsPopupOpened={setIsPopupOpened}
+              setPopupContent={setPopupContent}
             />
           ))}
         </div>

@@ -13,6 +13,7 @@
           "name": "Билайн",
           "description": "Магазин электроники",
           "logo": "https://moskva.beeline.ru",
+          "link": "",
           "price": 12990
         }
       ]
@@ -28,12 +29,14 @@
           "name": "Билайн",
           "description": "Магазин электроники",
           "logo": "https://moskva.beeline.ru",
+          "link": "",
           "price": 119890
         },
         {
           "name": "Технопарк",
           "description": "Магазин электроники",
           "logo": "https://www.technopark.ru",
+          "link": "",
           "price": 119990
         }
       ]
@@ -49,6 +52,7 @@
           "name": "Билайн",
           "description": "Магазин электроники",
           "logo": "https://moskva.beeline.ru",
+          "link": "",
           "price": 78090
         }
       ]
@@ -96,6 +100,7 @@
           "name": "Технопарк",
           "description": "Магазин электроники",
           "logo": "https://www.technopark.ru",
+          "link": "",
           "price": 21490
         }
       ]
@@ -111,6 +116,7 @@
           "name": "Технопарк",
           "description": "Магазин электроники",
           "logo": "https://www.technopark.ru",
+          "link": "",
           "price": 118880
         }
       ]
