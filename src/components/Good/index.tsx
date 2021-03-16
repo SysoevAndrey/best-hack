@@ -16,7 +16,7 @@ const Good = ({
       <h3 className="good__name">{name}</h3>
     </div>
     <p className="good__rate">
-      Средняя стоимость: <strong>{averagePrice}</strong>
+      Средняя стоимость: <strong>{averagePrice} &#8381;</strong>
     </p>
     <p className="good__rate">
       Оценка: <strong>{rating}</strong> из <strong>10</strong>
