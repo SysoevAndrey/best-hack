@@ -1,27 +1,118 @@
 {
-  "total": 48,
+  "category": "Продукты питания",
+  "total": 9,
   "list": [
     {
-      "name": "Наушники Sony",
-      "rating": 4.7,
-      "popularity": 7,
-      "averagePrice": 25999,
+      "name": "Смартфон Samsung Galaxy A8 (2018) 32GB Gold",
+      "rating": 0,
+      "popularity": 0,
+      "averagePrice": 12990,
+      "logo": "//static.beeline.ru/shop/media/goods/196x302/ead966b1-3667-409c-9d93-788672c21502.png",
       "markets": [
-        { "name": "Яндекс.Маркет", "price": 23999 },
-        { "name": "М.Видео", "price": 26999 },
-        { "name": "Технопарк", "price": 26999 }
+        {
+          "name": "Билайн",
+          "description": "Магазин электроники",
+          "logo": "https://moskva.beeline.ru",
+          "price": 12990
+        }
       ]
     },
     {
-      "name": "iPhone 12",
-      "rating": 4.8,
-      "popularity": 9,
-      "averagePrice": 60000,
+      "name": "Смартфон Apple iPhone 12 Pro Max 256GB Синий",
+      "rating": 0,
+      "popularity": 0,
+      "averagePrice": 119940,
+      "logo": "//static.beeline.ru/shop/media/goods/196x302/2463ff24-50f1-409f-8f9f-ff5783a14587.png",
       "markets": [
-        { "name": "Яндекс.Маркет", "price": 57999 },
-        { "name": "Технопарк", "price": 60999 },
-        { "name": "Эльдорадо", "price": 59999 },
-        { "name": "М.Видео", "price": 61999 }
+        {
+          "name": "Билайн",
+          "description": "Магазин электроники",
+          "logo": "https://moskva.beeline.ru",
+          "price": 119890
+        },
+        {
+          "name": "Технопарк",
+          "description": "Магазин электроники",
+          "logo": "https://www.technopark.ru",
+          "price": 119990
+        }
+      ]
+    },
+    {
+      "name": "Смартфон Apple iPhone 12 mini 256GB Чёрный",
+      "rating": 0,
+      "popularity": 0,
+      "averagePrice": 78090,
+      "logo": "//static.beeline.ru/shop/media/goods/196x302/e68d4358-95f6-456c-aaa1-2204d1b5787b.png",
+      "markets": [
+        {
+          "name": "Билайн",
+          "description": "Магазин электроники",
+          "logo": "https://moskva.beeline.ru",
+          "price": 78090
+        }
+      ]
+    },
+    {
+      "name": "Samsung A415 Galaxy A41 4/64Gb Black",
+      "rating": 0,
+      "popularity": 0,
+      "averagePrice": 0,
+      "logo": "https://mtscdn.ru/upload/iblock/13d/smartfon_samsung_a415_galaxy_a41_4_64gb_black.jpg",
+      "markets": []
+    },
+    {
+      "name": "Honor 10X Lite 4/128Gb Icelandic Frost",
+      "rating": 0,
+      "popularity": 0,
+      "averagePrice": 0,
+      "logo": "https://mtscdn.ru/upload/iblock/377/0101_7360_min.png",
+      "markets": []
+    },
+    {
+      "name": "OPPO A12 3/32Gb Black",
+      "rating": 0,
+      "popularity": 0,
+      "averagePrice": 0,
+      "logo": "https://mtscdn.ru/upload/iblock/ade/0101_7405_min.png",
+      "markets": []
+    },
+    {
+      "name": "OPPO A53 4/64Gb Mint",
+      "rating": 0,
+      "popularity": 0,
+      "averagePrice": 0,
+      "logo": "https://mtscdn.ru/upload/iblock/14d/A53_Green_PP.jpg",
+      "markets": []
+    },
+    {
+      "name": "Смартфон Xiaomi Redmi Note 9 Pro 128 ГБ белый",
+      "rating": 0,
+      "popularity": 0,
+      "averagePrice": 21490,
+      "logo": "https://cdn1.technopark.ru/technopark/photos_resized/product/248_248/213182/1_213182.jpg",
+      "markets": [
+        {
+          "name": "Технопарк",
+          "description": "Магазин электроники",
+          "logo": "https://www.technopark.ru",
+          "price": 21490
+        }
+      ]
+    },
+    {
+      "name": "Смартфон Samsung Galaxy S21 Ultra 512 ГБ чёрный фантом",
+      "rating": 0,
+      "popularity": 0,
+      "averagePrice": 118880,
+      "logo": "https://cdn1.technopark.ru/technopark/photos_resized/product/248_248/250610/1_250610.jpg",
+      "markets": [
+        {
+          "name": "Технопарк",
+          "description": "Магазин электроники",
+          "logo": "https://www.technopark.ru",
+          "price": 118880
+        }
       ]
     }
   ]
