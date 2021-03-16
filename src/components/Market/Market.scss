@@ -8,19 +8,9 @@
 
   box-sizing: border-box;
 
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 25% 50% 20% 5%;
   align-items: center;
-
-  &__info {
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
-  }
-
-  &__data {
-    width: 70%;
-  }
 
   &__logo {
     height: 60px;

@@ -48,7 +48,6 @@ const ResultsPage = ({
   useEffect(() => {
     if (keyword) {
       setTimeout(() => {
-        console.log('hello');
         setData(mock);
       }, 2000);
     }
@@ -57,7 +56,11 @@ const ResultsPage = ({
   return (
     <div className="results-page">
       {isPopupOpened && (
-        <Popup setIsPopupOpened={setIsPopupOpened} markets={popupContent} />
+        <Popup
+          setIsPopupOpened={setIsPopupOpened}
+          markets={popupContent}
+          changeOrder={setPopupContent}
+        />
       )}
       <Header
         isIconVisibvle
@@ -70,8 +73,9 @@ const ResultsPage = ({
           Найдено {data.total} товаров в категрии "{data.category}".
         </h2>
         <div className="results__container">
-          {data.list.map((good) => (
+          {data.list.map((good, index: number) => (
             <Good
+              key={good.name + index}
               name={good.name}
               logo={good.logo}
               rating={good.rating}
