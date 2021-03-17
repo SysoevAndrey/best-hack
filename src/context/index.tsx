@@ -5,7 +5,7 @@ interface IInitialState {
   keyword: string;
   data: IDataFromServer;
   isPopupOpened: boolean;
-  popupContent: { title: string; data: IMarket[] };
+  popupContent: { title: string; data: IMarket[]; type: 'default' | 'cart' };
   cartData: IMarket[];
 }
 
@@ -13,7 +13,7 @@ const initialState: IInitialState = {
   keyword: '',
   data: { total: 0, category: '', list: [] },
   isPopupOpened: false,
-  popupContent: { title: '', data: [] },
+  popupContent: { title: '', data: [], type: 'default' },
   cartData: [],
 };
 

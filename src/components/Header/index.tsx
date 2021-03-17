@@ -29,16 +29,18 @@ const Header = ({
   }, [keyword]);
 
   useEffect(() => {
-    dispatch({
-      type: 'SET_POPUP_CONTENT',
-      payload: { ...popupContent, data: cartData },
-    });
+    if (popupContent.type === 'cart') {
+      dispatch({
+        type: 'SET_POPUP_CONTENT',
+        payload: { ...popupContent, data: cartData },
+      });
+    }
   }, [cartData]);
 
   const onIconClick = () => {
     dispatch({
       type: 'SET_POPUP_CONTENT',
-      payload: { title: 'Сохраненные товары', data: cartData },
+      payload: { title: 'Сохраненные товары', type: 'cart', data: cartData },
     });
     dispatch({ type: 'SET_POPUP_STATE', payload: true });
   };

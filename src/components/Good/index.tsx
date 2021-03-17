@@ -17,16 +17,22 @@ const Good = ({
   } = useFilterContext();
 
   useEffect(() => {
-    dispatch({
-      type: 'SET_POPUP_CONTENT',
-      payload: { ...popupContent, data: markets },
-    });
+    if (popupContent.type === 'default') {
+      dispatch({
+        type: 'SET_POPUP_CONTENT',
+        payload: { ...popupContent, data: markets },
+      });
+    }
   }, [markets]);
 
   const onGoodClick = () => {
     dispatch({
       type: 'SET_POPUP_CONTENT',
-      payload: { title: 'Наличие товара в магазинах', data: markets },
+      payload: {
+        title: 'Наличие товара в магазинах',
+        type: 'default',
+        data: markets,
+      },
     });
     dispatch({ type: 'SET_POPUP_STATE', payload: true });
   };
