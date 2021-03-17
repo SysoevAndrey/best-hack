@@ -62,9 +62,7 @@ const Market = ({
 
   return (
     <div className="market">
-      <a href={productLogoLink} rel="noreferrer" target="_blank">
-        {/* <img className="market__logo" src={logo} alt={`Лого ${name}`} /> */}
-      </a>
+      <img className="market__logo" src={logo} alt={`Лого ${name}`} />
       <div className="market__info">
         <h3 className="market__name">{name}</h3>
         <p className="market__description">{description}</p>

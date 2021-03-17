@@ -34,6 +34,9 @@ const Good = ({
         Средняя стоимость: <strong>{averagePrice} &#8381;</strong>
       </p>
       <p className="good__rate">
+        Популярность товара: <strong>{popularity} %</strong>
+      </p>
+      <p className="good__rate">
         Оценка: <strong>{rating}</strong> из <strong>5</strong>
       </p>
     </div>

@@ -85,7 +85,7 @@ const Popup = ({ markets, title }: { markets: IMarket[]; title: string }) => {
               key={market.name + index}
               name={market.name}
               description={market.description}
-              logo={market.link}
+              logo={market.logo}
               price={market.price}
               link={market.link}
               productLogoLink={market.productLogoLink}
