@@ -50,7 +50,9 @@ const ResultsPage = () => {
               markets: product.markets.map((market) => ({
                 ...market,
                 productLogoLink: product.logo,
-                saved: cartData.some((item) => item.logo === product.logo),
+                saved: cartData.some(
+                  (item) => item.productLogoLink === product.logo
+                ),
               })),
             })),
           },

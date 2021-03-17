@@ -67,6 +67,7 @@ const Popup = ({ markets, title }: { markets: IMarket[]; title: string }) => {
           onClick={() => dispatch({ type: 'SET_POPUP_STATE', payload: false })}
         />
         <h3 className="popup__title">{title}</h3>
+        {console.log(markets)}
         {markets.length > 1 && (
           <div className="popup__filters">
             <p className="popup__filter">Цена</p>
