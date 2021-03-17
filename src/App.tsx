@@ -1,21 +1,36 @@
 import queryString from 'query-string';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import ResultsPage from './components/ResultsPage';
 import StartPage from './components/StartPage';
+import { useFilterContext } from './context';
 import useDidUpdateEffect from './utils/useDidUpdateEffect';
 
 function App() {
-  const [keyword, setKeyword] = useState('');
+  const {
+    state: { keyword, cartData },
+    dispatch,
+  } = useFilterContext();
 
   useEffect(() => {
     const { keyword: parsedKeyWord = '' } = queryString.parse(
       window.location.search
     );
 
-    setKeyword(parsedKeyWord!.toString());
+    const cartFromLS = window.localStorage.getItem('cart');
+
+    dispatch({
+      type: 'SET_CART_DATA',
+      payload: cartFromLS ? JSON.parse(cartFromLS) : [],
+    });
+
+    dispatch({ type: 'SET_KEYWORD', payload: parsedKeyWord!.toString() });
   }, []);
+
+  useDidUpdateEffect(() => {
+    window.localStorage.setItem('cart', JSON.stringify(cartData));
+  }, [cartData]);
 
   useDidUpdateEffect(() => {
     if (keyword) {
@@ -39,18 +54,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route
-            exact
-            path="/search"
-            component={() => <StartPage onSetKeyword={setKeyword} />}
-          />
-          <Route
-            exact
-            path="/results"
-            component={() => (
-              <ResultsPage keyword={keyword} onSetKeyword={setKeyword} />
-            )}
-          />
+          <Route exact path="/search" component={StartPage} />
+          <Route exact path="/results" component={ResultsPage} />
           <Route path="/">
             <Redirect to="/search" />
           </Route>

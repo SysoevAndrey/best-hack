@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import './StartPage.scss';
 import Header from '../Header';
+import { useFilterContext } from '../../context';
 
-const StartPage = ({
-  onSetKeyword,
-}: {
-  onSetKeyword: React.Dispatch<React.SetStateAction<string>>;
-}) => {
+const StartPage = () => {
+  const { dispatch } = useFilterContext();
+
   const [inputValue, setInputValue] = useState('');
 
   const onFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    onSetKeyword(inputValue);
+    dispatch({ type: 'SET_KEYWORD', payload: inputValue });
     setInputValue('');
   };
 

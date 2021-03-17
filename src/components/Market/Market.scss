@@ -8,6 +8,8 @@
 
   box-sizing: border-box;
 
+  position: relative;
+
   display: grid;
   grid-template-columns: 25% 50% 20% 5%;
   align-items: center;
@@ -36,6 +38,24 @@
 
     &:hover {
       transform: translate(3px, 0);
+    }
+  }
+
+  &__save {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: .1s ease-out;
+
+    cursor: pointer;
+
+    &:hover {
+      opacity: .7;
+    }
+
+    &-icon {
+      width: 25px;
+      height: 25px;
     }
   }
 }

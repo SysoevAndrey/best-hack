@@ -1,20 +1,52 @@
 {
   "category": "Техника",
-  "total": 9,
+  "total": 5,
   "list": [
     {
-      "name": "Смартфон Samsung Galaxy A8 (2018) 32GB Gold",
-      "rating": 0,
-      "popularity": 0,
-      "averagePrice": 12990,
-      "logo": "//static.beeline.ru/shop/media/goods/196x302/ead966b1-3667-409c-9d93-788672c21502.png",
+      "name": "Смартфон Apple iPhone 12 128GB Blue (MGJE3RU/A)",
+      "rating": 5,
+      "popularity": 48,
+      "averagePrice": 84990,
+      "logo": "https://static.eldorado.ru/photos/71/715/665/47/new_71566547_l_1602620544.jpeg/resize/200x200/",
       "markets": [
         {
-          "name": "Билайн",
+          "name": "Эьдорадо",
           "description": "Магазин электроники",
-          "logo": "https://moskva.beeline.ru",
-          "link": "",
-          "price": 12990
+          "logo": "https://static.beeline.ru/upload/images/b2c/bee-logo/single.png",
+          "price": 84990,
+          "link": "https://www.eldorado.ru/cat/detail/smartfon-apple-iphone-12-128gb-blue-mgje3ru-a/"
+        }
+      ]
+    },
+    {
+      "name": "Смартфон Apple iPhone SE 2020 64GB Black (MX9R2RU/A)",
+      "rating": 5,
+      "popularity": 100,
+      "averagePrice": 39990,
+      "logo": "https://static.eldorado.ru/photos/71/715/449/29/new_71544929_l_1587031638.jpeg/resize/200x200/",
+      "markets": [
+        {
+          "name": "Эьдорадо",
+          "description": "Магазин электроники",
+          "logo": "https://static.beeline.ru/upload/images/b2c/bee-logo/single.png",
+          "price": 39990,
+          "link": "https://www.eldorado.ru/cat/detail/smartfon-apple-iphone-se-64gb-black-mx9r2ru-a/"
+        }
+      ]
+    },
+    {
+      "name": "Смартфон Realme 6S 6+128GB Lunar White (RMX2002)",
+      "rating": 5,
+      "popularity": 57,
+      "averagePrice": 19990,
+      "logo": "https://static.eldorado.ru/photos/71/715/659/21/new_71565921_l_1600176665.jpeg/resize/200x200/",
+      "markets": [
+        {
+          "name": "Эьдорадо",
+          "description": "Магазин электроники",
+          "logo": "https://static.beeline.ru/upload/images/b2c/bee-logo/single.png",
+          "price": 19990,
+          "link": "https://www.eldorado.ru/cat/detail/smartfon-realme-6s-6-128gb-lunar-white-rmx2002/"
         }
       ]
     },
@@ -28,96 +60,39 @@
         {
           "name": "Билайн",
           "description": "Магазин электроники",
-          "logo": "https://moskva.beeline.ru",
-          "link": "",
-          "price": 119890
+          "logo": "https://static.beeline.ru/upload/images/b2c/bee-logo/single.png",
+          "price": 119890,
+          "link": "https://moskva.beeline.ru/shop/details/smartfon-apple-iphone-12-pro-max-256gb-sinii/"
         },
         {
           "name": "Технопарк",
           "description": "Магазин электроники",
-          "logo": "https://www.technopark.ru",
-          "link": "",
-          "price": 119990
+          "logo": "",
+          "price": 119990,
+          "link": "https://www.technopark.ru/smartfon-apple-iphone-12-pro-max-256-gb-tihookeanskiy-siniy/"
         }
       ]
     },
     {
-      "name": "Смартфон Apple iPhone 12 mini 256GB Чёрный",
+      "name": "Смартфон Apple iPhone 11 64 ГБ чёрный",
       "rating": 0,
       "popularity": 0,
-      "averagePrice": 78090,
-      "logo": "//static.beeline.ru/shop/media/goods/196x302/e68d4358-95f6-456c-aaa1-2204d1b5787b.png",
+      "averagePrice": 66290,
+      "logo": "https://cdn1.technopark.ru/technopark/photos_resized/product/248_248/236437/1_236437.jpg",
       "markets": [
         {
           "name": "Билайн",
           "description": "Магазин электроники",
-          "logo": "https://moskva.beeline.ru",
-          "link": "",
-          "price": 78090
-        }
-      ]
-    },
-    {
-      "name": "Samsung A415 Galaxy A41 4/64Gb Black",
-      "rating": 0,
-      "popularity": 0,
-      "averagePrice": 0,
-      "logo": "https://mtscdn.ru/upload/iblock/13d/smartfon_samsung_a415_galaxy_a41_4_64gb_black.jpg",
-      "markets": []
-    },
-    {
-      "name": "Honor 10X Lite 4/128Gb Icelandic Frost",
-      "rating": 0,
-      "popularity": 0,
-      "averagePrice": 0,
-      "logo": "https://mtscdn.ru/upload/iblock/377/0101_7360_min.png",
-      "markets": []
-    },
-    {
-      "name": "OPPO A12 3/32Gb Black",
-      "rating": 0,
-      "popularity": 0,
-      "averagePrice": 0,
-      "logo": "https://mtscdn.ru/upload/iblock/ade/0101_7405_min.png",
-      "markets": []
-    },
-    {
-      "name": "OPPO A53 4/64Gb Mint",
-      "rating": 0,
-      "popularity": 0,
-      "averagePrice": 0,
-      "logo": "https://mtscdn.ru/upload/iblock/14d/A53_Green_PP.jpg",
-      "markets": []
-    },
-    {
-      "name": "Смартфон Xiaomi Redmi Note 9 Pro 128 ГБ белый",
-      "rating": 0,
-      "popularity": 0,
-      "averagePrice": 21490,
-      "logo": "https://cdn1.technopark.ru/technopark/photos_resized/product/248_248/213182/1_213182.jpg",
-      "markets": [
+          "logo": "https://static.beeline.ru/upload/images/b2c/bee-logo/single.png",
+          "price": 78090,
+          "link": "https://moskva.beeline.ru/shop/details/smartfon-apple-iphone-12-mini-256gb-zelnyi/"
+        },
         {
           "name": "Технопарк",
           "description": "Магазин электроники",
-          "logo": "https://www.technopark.ru",
-          "link": "",
-          "price": 21490
-        }
-      ]
-    },
-    {
-      "name": "Смартфон Samsung Galaxy S21 Ultra 512 ГБ чёрный фантом",
-      "rating": 0,
-      "popularity": 0,
-      "averagePrice": 118880,
-      "logo": "https://cdn1.technopark.ru/technopark/photos_resized/product/248_248/250610/1_250610.jpg",
-      "markets": [
-        {
-          "name": "Технопарк",
-          "description": "Магазин электроники",
-          "logo": "https://www.technopark.ru",
-          "link": "",
-          "price": 118880
+          "logo": "",
+          "price": 54490,
+          "link": "https://www.technopark.ru/smartfon-apple-iphone-11-64-gb-chernyy-mhda3rua/"
         }
       ]
     }

@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import Header from '../Header';
-import './ResultsPage.scss';
-import Good from '../Good';
-import Popup from '../Popup';
-
+import React from 'react';
+import { useFilterContext } from '../../context';
 import mock from '../../data.json';
+import useDidUpdateEffect from '../../utils/useDidUpdateEffect';
+import Good from '../Good';
+import Header from '../Header';
+import Popup from '../Popup';
+import './ResultsPage.scss';
 
-interface IDataFromServer {
+export interface IDataFromServer {
   category: string;
   total: number;
-  list: IGoodItem[];
+  list: IGood[];
 }
 
-export interface IGoodItem {
+export interface IGood {
   name: string;
   rating: number;
   popularity: number;
@@ -27,53 +28,49 @@ export interface IMarket {
   logo: string;
   price: number;
   link: string;
+  saved?: boolean;
+  productLogoLink?: string;
 }
 
-const ResultsPage = ({
-  keyword,
-  onSetKeyword,
-}: {
-  keyword: string;
-  onSetKeyword: React.Dispatch<React.SetStateAction<string>>;
-}) => {
-  const [data, setData] = useState<IDataFromServer>({
-    category: '',
-    total: 0,
-    list: [],
-  });
+const ResultsPage = () => {
+  const {
+    state: { keyword, data, isPopupOpened, popupContent, cartData },
+    dispatch,
+  } = useFilterContext();
 
-  const [isPopupOpened, setIsPopupOpened] = useState(false);
-  const [popupContent, setPopupContent] = useState<IMarket[]>([]);
-
-  useEffect(() => {
+  useDidUpdateEffect(() => {
     if (keyword) {
       setTimeout(() => {
-        setData(mock);
-      }, 2000);
+        dispatch({
+          type: 'SET_DATA',
+          payload: {
+            ...mock,
+            list: mock.list.map((product) => ({
+              ...product,
+              markets: product.markets.map((market) => ({
+                ...market,
+                productLogoLink: product.logo,
+                saved: cartData.some((item) => item.logo === product.logo),
+              })),
+            })),
+          },
+        });
+      }, 0);
     }
   }, [keyword]);
 
   return (
     <div className="results-page">
       {isPopupOpened && (
-        <Popup
-          setIsPopupOpened={setIsPopupOpened}
-          markets={popupContent}
-          changeOrder={setPopupContent}
-        />
+        <Popup markets={popupContent.data} title={popupContent.title} />
       )}
-      <Header
-        isIconVisibvle
-        isInputVisible
-        keyword={keyword}
-        onSetKeyword={onSetKeyword}
-      />
+      <Header isIconVisibvle isInputVisible />
       <main className="results">
         <h2 className="results__overall">
           Найдено {data.total} товаров в категрии "{data.category}".
         </h2>
         <div className="results__container">
-          {data.list.map((good, index: number) => (
+          {data.list.map((good: any, index: number) => (
             <Good
               key={good.name + index}
               name={good.name}
@@ -82,8 +79,6 @@ const ResultsPage = ({
               popularity={good.popularity}
               averagePrice={good.averagePrice}
               markets={good.markets}
-              setIsPopupOpened={setIsPopupOpened}
-              setPopupContent={setPopupContent}
             />
           ))}
         </div>

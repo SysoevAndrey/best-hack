@@ -1,11 +1,7 @@
 import React from 'react';
-import { IGoodItem, IMarket } from '../ResultsPage';
+import { useFilterContext } from '../../context';
+import { IGood } from '../ResultsPage';
 import './Good.scss';
-
-type IGood = {
-  setIsPopupOpened: React.Dispatch<React.SetStateAction<boolean>>;
-  setPopupContent: React.Dispatch<React.SetStateAction<IMarket[]>>;
-} & IGoodItem;
 
 const Good = ({
   name,
@@ -14,12 +10,18 @@ const Good = ({
   popularity,
   averagePrice,
   markets,
-  setIsPopupOpened,
-  setPopupContent,
 }: IGood) => {
+  const {
+    state: { popupContent },
+    dispatch,
+  } = useFilterContext();
+
   const onGoodClick = () => {
-    setIsPopupOpened(true);
-    setPopupContent(markets);
+    dispatch({
+      type: 'SET_POPUP_CONTENT',
+      payload: { title: 'Наличие товара в магазинах', data: markets },
+    });
+    dispatch({ type: 'SET_POPUP_STATE', payload: true });
   };
 
   return (
@@ -32,7 +34,7 @@ const Good = ({
         Средняя стоимость: <strong>{averagePrice} &#8381;</strong>
       </p>
       <p className="good__rate">
-        Оценка: <strong>{rating}</strong> из <strong>10</strong>
+        Оценка: <strong>{rating}</strong> из <strong>5</strong>
       </p>
     </div>
   );

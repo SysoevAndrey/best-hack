@@ -1,24 +1,39 @@
 import React, { useState } from 'react';
+import { useFilterContext } from '../../context';
 import savedIcon from '../../images/saved.svg';
+import useDidMountEffect from '../../utils/useDidUpdateEffect';
 import './Header.scss';
 
 const Header = ({
   isIconVisibvle,
   isInputVisible,
-  keyword,
-  onSetKeyword,
 }: {
   isIconVisibvle?: boolean;
   isInputVisible?: boolean;
-  keyword?: string;
-  onSetKeyword?: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  const [inputValue, setInputValue] = useState(keyword);
+  const {
+    state: { keyword, cartData },
+    dispatch,
+  } = useFilterContext();
+
+  const [inputValue, setInputValue] = useState('');
 
   const onFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    onSetKeyword!(inputValue!);
+    dispatch({ type: 'SET_KEYWORD', payload: inputValue });
+  };
+
+  useDidMountEffect(() => {
+    setInputValue(keyword);
+  }, [keyword]);
+
+  const onIconClick = () => {
+    dispatch({
+      type: 'SET_POPUP_CONTENT',
+      payload: { title: 'Сохраненные товары', data: cartData },
+    });
+    dispatch({ type: 'SET_POPUP_STATE', payload: true });
   };
 
   return (
@@ -37,7 +52,12 @@ const Header = ({
         )}
       </div>
       {isIconVisibvle && (
-        <img className="header__icon" src={savedIcon} alt="Иконка корзины" />
+        <img
+          className="header__icon"
+          onClick={() => onIconClick()}
+          src={savedIcon}
+          alt="Иконка корзины"
+        />
       )}
     </header>
   );

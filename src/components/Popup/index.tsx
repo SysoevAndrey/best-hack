@@ -5,22 +5,20 @@ import { IMarket } from '../ResultsPage';
 import './Popup.scss';
 import bottomIcon from '../../images/bottom.svg';
 import topIcon from '../../images/top.svg';
+import { useFilterContext } from '../../context';
 
-const Popup = ({
-  markets,
-  setIsPopupOpened,
-  changeOrder,
-}: {
-  markets: IMarket[];
-  setIsPopupOpened: React.Dispatch<React.SetStateAction<boolean>>;
-  changeOrder: React.Dispatch<React.SetStateAction<IMarket[]>>;
-}) => {
+const Popup = ({ markets, title }: { markets: IMarket[]; title: string }) => {
+  const {
+    state: { popupContent },
+    dispatch,
+  } = useFilterContext();
+
   const [order, setOrder] = useState('ascending');
 
   useEffect(() => {
     const escHandler = (e: any) => {
       if (e.key === 'Escape') {
-        setIsPopupOpened(false);
+        dispatch({ type: 'SET_POPUP_STATE', payload: false });
       }
     };
 
@@ -33,16 +31,28 @@ const Popup = ({
 
   const outsideClickHandler = (e: any) => {
     if (e.target.className === 'popup') {
-      setIsPopupOpened(false);
+      dispatch({ type: 'SET_POPUP_STATE', payload: false });
     }
   };
 
   const changeListOrder = () => {
     if (order === 'ascending') {
-      changeOrder(markets.sort((first, second) => -first.price + second.price));
+      dispatch({
+        type: 'SET_POPUP_CONTENT',
+        payload: {
+          ...popupContent,
+          data: markets.sort((first, second) => -first.price + second.price),
+        },
+      });
       setOrder('descending');
     } else {
-      changeOrder(markets.sort((first, second) => first.price - second.price));
+      dispatch({
+        type: 'SET_POPUP_CONTENT',
+        payload: {
+          ...popupContent,
+          data: markets.sort((first, second) => first.price - second.price),
+        },
+      });
       setOrder('ascending');
     }
   };
@@ -54,9 +64,9 @@ const Popup = ({
           src={closeIcon}
           alt="Крестик закрытия формы входа"
           className="popup__close"
-          onClick={() => setIsPopupOpened(false)}
+          onClick={() => dispatch({ type: 'SET_POPUP_STATE', payload: false })}
         />
-        <h3 className="popup__title">Наличие товара в магазинах.</h3>
+        <h3 className="popup__title">{title}</h3>
         {markets.length > 1 && (
           <div className="popup__filters">
             <p className="popup__filter">Цена</p>
@@ -78,6 +88,8 @@ const Popup = ({
               logo={market.link}
               price={market.price}
               link={market.link}
+              productLogoLink={market.productLogoLink}
+              saved={market.saved}
             />
           ))}
         </div>
