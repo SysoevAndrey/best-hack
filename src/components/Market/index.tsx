@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IGood, IMarket } from '../ResultsPage';
 import './Market.scss';
 import goIcon from '../../images/go.svg';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFilterContext } from '../../context';
 import { IGood } from '../ResultsPage';
 import './Good.scss';
@@ -15,6 +15,13 @@ const Good = ({
     state: { popupContent },
     dispatch,
   } = useFilterContext();
+
+  useEffect(() => {
+    dispatch({
+      type: 'SET_POPUP_CONTENT',
+      payload: { title: 'Наличие товара в магазинах', data: markets },
+    });
+  }, [markets]);
 
   const onGoodClick = () => {
     dispatch({
