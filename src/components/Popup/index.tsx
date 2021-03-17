@@ -79,20 +79,24 @@ const Popup = ({ markets, title }: { markets: IMarket[]; title: string }) => {
             </i>
           </div>
         )}
-        <div className="popup__list">
-          {markets.map((market, index: number) => (
-            <Market
-              key={market.name + index}
-              name={market.name}
-              description={market.description}
-              logo={market.logo}
-              price={market.price}
-              link={market.link}
-              productLogoLink={market.productLogoLink}
-              saved={market.saved}
-            />
-          ))}
-        </div>
+        {markets.length > 0 ? (
+          <div className="popup__list">
+            {markets.map((market, index: number) => (
+              <Market
+                key={market.name + index}
+                name={market.name}
+                description={market.description}
+                logo={market.logo}
+                price={market.price}
+                link={market.link}
+                productLogoLink={market.productLogoLink}
+                saved={market.saved}
+              />
+            ))}
+          </div>
+        ) : (
+          <h3>Тут пусто...</h3>
+        )}
       </div>
     </div>
   );
