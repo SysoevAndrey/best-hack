@@ -12,14 +12,14 @@ const Good = ({
   markets,
 }: IGood) => {
   const {
-    state: { popupContent },
+    state: { popupContent, cartData },
     dispatch,
   } = useFilterContext();
 
   useEffect(() => {
     dispatch({
       type: 'SET_POPUP_CONTENT',
-      payload: { title: 'Наличие товара в магазинах', data: markets },
+      payload: { ...popupContent, data: markets },
     });
   }, [markets]);
 

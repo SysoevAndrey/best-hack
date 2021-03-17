@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFilterContext } from '../../context';
 import savedIcon from '../../images/saved.svg';
 import useDidMountEffect from '../../utils/useDidUpdateEffect';
@@ -12,7 +12,7 @@ const Header = ({
   isInputVisible?: boolean;
 }) => {
   const {
-    state: { keyword, cartData },
+    state: { keyword, cartData, popupContent },
     dispatch,
   } = useFilterContext();
 
@@ -27,6 +27,13 @@ const Header = ({
   useDidMountEffect(() => {
     setInputValue(keyword);
   }, [keyword]);
+
+  useEffect(() => {
+    dispatch({
+      type: 'SET_POPUP_CONTENT',
+      payload: { ...popupContent, data: cartData },
+    });
+  }, [cartData]);
 
   const onIconClick = () => {
     dispatch({
