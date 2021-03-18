@@ -40,14 +40,20 @@ const ResultsPage = () => {
 
   useDidUpdateEffect(() => {
     if (keyword) {
-      setTimeout(() => {
+      const fetchData = async () => {
+        const response = await fetch(
+          'https://localhost:44383/api/store?query=' + keyword
+        );
+
+        const mock = await response.json();
+
         dispatch({
           type: 'SET_DATA',
           payload: {
             ...mock,
-            list: mock.list.map((product) => ({
+            list: mock.list.map((product: any) => ({
               ...product,
-              markets: product.markets.map((market) => ({
+              markets: product.markets.map((market: any) => ({
                 ...market,
                 productLogoLink: product.logo,
                 saved: cartData.some(
@@ -57,7 +63,9 @@ const ResultsPage = () => {
             })),
           },
         });
-      }, 0);
+      };
+
+      fetchData();
     }
   }, [keyword]);
 
