@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFilterContext } from '../../context';
-import mock from '../../data.json';
 import useDidUpdateEffect from '../../utils/useDidUpdateEffect';
 import Good from '../Good';
 import Header from '../Header';
 import Popup from '../Popup';
 import './ResultsPage.scss';
+
+import notFoundIcon from '../../images/not-found.svg';
 
 export interface IDataFromServer {
   category: string;
@@ -38,6 +39,8 @@ const ResultsPage = () => {
     dispatch,
   } = useFilterContext();
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useDidUpdateEffect(() => {
     if (keyword) {
       const fetchData = async () => {
@@ -45,13 +48,13 @@ const ResultsPage = () => {
           'https://localhost:44383/api/store?query=' + keyword
         );
 
-        const mock = await response.json();
+        const data = await response.json();
 
         dispatch({
           type: 'SET_DATA',
           payload: {
-            ...mock,
-            list: mock.list.map((product: any) => ({
+            ...data,
+            list: data.list.map((product: any) => ({
               ...product,
               markets: product.markets.map((market: any) => ({
                 ...market,
@@ -63,8 +66,11 @@ const ResultsPage = () => {
             })),
           },
         });
+
+        setIsLoading(false);
       };
 
+      setIsLoading(true);
       fetchData();
     }
   }, [keyword]);
@@ -76,22 +82,34 @@ const ResultsPage = () => {
       )}
       <Header isIconVisibvle isInputVisible />
       <main className="results">
-        <h2 className="results__overall">
-          Найдено {data.total} товаров в категрии "{data.category}".
-        </h2>
-        <div className="results__container">
-          {data.list.map((good: any, index: number) => (
-            <Good
-              key={good.name + index}
-              name={good.name}
-              logo={good.logo}
-              rating={good.rating}
-              popularity={good.popularity}
-              averagePrice={good.averagePrice}
-              markets={good.markets}
-            />
-          ))}
-        </div>
+        {isLoading ? (
+          <i className="preloader"></i>
+        ) : (
+          <>
+            <h2 className="results__overall">
+              {data.list.length > 0
+                ? `Найдено ${data.total} товаров в категрии "${data.category}".`
+                : 'Товаров не найдено'}
+            </h2>
+            <div className="results__container">
+              {data.list.length > 0 ? (
+                data.list.map((good: any, index: number) => (
+                  <Good
+                    key={good.name + index}
+                    name={good.name}
+                    logo={good.logo}
+                    rating={good.rating}
+                    popularity={good.popularity}
+                    averagePrice={good.averagePrice}
+                    markets={good.markets}
+                  />
+                ))
+              ) : (
+                <img src={notFoundIcon} alt="Нет результатов" />
+              )}
+            </div>
+          </>
+        )}
       </main>
     </div>
   );

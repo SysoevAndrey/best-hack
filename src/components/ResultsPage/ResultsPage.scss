@@ -35,3 +35,23 @@
     gap: 20px;
   }
 }
+
+.preloader {
+  display: block;
+  width: 74px;
+  height: 74px;
+  border: 2px solid #999;
+  border-top-color: #bdc3cc;
+  border-left-color: #d7dde6;
+  border-bottom-color: #e7edf6;
+
+  border-radius: 50%;
+
+  animation: spin 0.75s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
